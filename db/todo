@@ -1,0 +1,15 @@
+1.register
+2.login
+3.forgotPassword
+4.resetPassword
+5.verifyPassword
+----------------------------
+protected page - dashboard with logout
+1.count of url created
+2.page to create new url
+3.table to show all created urls
+
+............................................................
+BACKEND- same till normal routes, need to concentrate on protected
+1.user and url models(not url name)
+2.urlModel->longUrl,shsortUrl,count,Date,
