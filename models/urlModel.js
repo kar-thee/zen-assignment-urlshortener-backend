@@ -16,8 +16,12 @@ const SuperUrlzSchema = schema(
       type: Number,
       default: 0,
     },
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 const SuperUrlz = mongoose.model(

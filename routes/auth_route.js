@@ -1,10 +1,10 @@
 const router = require("express").Router();
 
-const emailActivationHandler = require("../controllers/emailActivation_controller");
-const forgotPasswordHandler = require("../controllers/forgotPassword_controller");
-const resetPasswordHandler = require("../controllers/resetPassword_controller");
-const signinHandler = require("../controllers/signIn_controller");
-const signupHandler = require("../controllers/signUp_controller");
+const emailActivationHandler = require("../controllers/public/emailActivation_controller");
+const forgotPasswordHandler = require("../controllers/public/forgotPassword_controller");
+const resetPasswordHandler = require("../controllers/public/resetPassword_controller");
+const signinHandler = require("../controllers/public/signIn_controller");
+const signupHandler = require("../controllers/public/signUp_controller");
 
 router.get("/", (req, res) => {
   res.json("Auth Working");

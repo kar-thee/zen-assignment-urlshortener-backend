@@ -1,7 +1,7 @@
-const User = require("../models/userModel");
+const User = require("../../models/userModel");
 const { v4: uuidv4 } = require("uuid");
-const { signTokenFunc } = require("../util/tokenFunc");
-const mailerFunc = require("../util/mailerFunc");
+const { signTokenFunc } = require("../../util/tokenFunc");
+const mailerFunc = require("../../util/mailerFunc");
 const forgotPasswordHandler = async (req, res) => {
   const { email } = req.body;
   try {

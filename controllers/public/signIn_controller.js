@@ -1,7 +1,7 @@
-const User = require("../models/userModel");
-const mailerFunc = require("../util/mailerFunc");
-const { decryptPwdFunc } = require("../util/passwordHelperFunc");
-const { signTokenFunc } = require("../util/tokenFunc");
+const User = require("../../models/userModel");
+const mailerFunc = require("../../util/mailerFunc");
+const { decryptPwdFunc } = require("../../util/passwordHelperFunc");
+const { signTokenFunc } = require("../../util/tokenFunc");
 
 const signinHandler = async (req, res) => {
   const { email, password } = req.body;

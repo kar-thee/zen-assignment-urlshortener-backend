@@ -1,6 +1,6 @@
-const User = require("../models/userModel");
-const mailerFunc = require("../util/mailerFunc");
-const { verifyTokenFunc } = require("../util/tokenFunc");
+const User = require("../../models/userModel");
+const mailerFunc = require("../../util/mailerFunc");
+const { verifyTokenFunc } = require("../../util/tokenFunc");
 
 const emailActivationHandler = async (req, res) => {
   const { activationId } = req.body;

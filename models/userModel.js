@@ -23,12 +23,12 @@ const userSchema = schema({
     type: String,
     default: undefined,
   },
-  urlsCreated: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "SuperUrlz",
-    },
-  ],
+  // urlsCreated: [
+  //   {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: "SuperUrlz",
+  //   },
+  // ],
 });
 
 const User = mongoose.model("User", userSchema, "userCollection");

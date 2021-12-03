@@ -1,7 +1,7 @@
-const User = require("../models/userModel");
-const mailerFunc = require("../util/mailerFunc");
-const { encryptPwdFunc } = require("../util/passwordHelperFunc");
-const { verifyTokenFunc } = require("../util/tokenFunc");
+const User = require("../../models/userModel");
+const mailerFunc = require("../../util/mailerFunc");
+const { encryptPwdFunc } = require("../../util/passwordHelperFunc");
+const { verifyTokenFunc } = require("../../util/tokenFunc");
 
 const resetPasswordHandler = async (req, res) => {
   const { resetCode, newPassword } = req.body;
