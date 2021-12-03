@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const mailerFunc = require("../util/mailerFunc");
 const { encryptPwdFunc } = require("../util/passwordHelperFunc");
 const { signTokenFunc } = require("../util/tokenFunc");
 
@@ -10,7 +11,7 @@ const signupHandler = async (req, res) => {
         .status(400)
         .send({ msg: "No Empty values allowed", type: "error" });
     }
-    const userAlreadyAvailable = await User.find({ email });
+    const userAlreadyAvailable = await User.findOne({ email });
     if (userAlreadyAvailable) {
       return res
         .status(403)
@@ -24,9 +25,18 @@ const signupHandler = async (req, res) => {
         type: "error",
       });
     }
-    const payLoad = { email, id: createdUser._id, name };
-    const token = signTokenFunc(payLoad);
-    res.send({ token, user: payLoad, type: "success" });
+    const tokenPayLoad = { email, id: createdUser._id, name };
+    const token = signTokenFunc(tokenPayLoad);
+
+    const mailDetails = {
+      toAddress: createdUser.email,
+      mailSubject: "Account Activation Link",
+      mailContent: `Welcome ${createdUser.name}!, just click the following link to activate your Account  -   
+        ${process.env.CLIENT_URL_ACCOUNTACTIVATION}/${token}`,
+    };
+    await mailerFunc(mailDetails);
+
+    res.send({ token, user: tokenPayLoad, type: "success" });
   } catch (e) {
     console.log(e.message, " err in signupHandler");
     res.status(500).send({ msg: "server issue", type: "error" });

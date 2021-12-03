@@ -12,8 +12,8 @@ router.get("/", (req, res) => {
 
 router.post("/signup", signupHandler); //name,password,email
 router.post("/signin", signinHandler); //password,email
-// router.post("/forgot-password"); //email
-// router.post("/reset-password"); //newPassword
-// router.post("/emailActivation"); //activationId
+router.post("/forgot-password", forgotPasswordHandler); //email
+router.post("/reset-password", resetPasswordHandler); //newPassword
+router.post("/emailActivation", emailActivationHandler); //activationId
 
 module.exports = router;
