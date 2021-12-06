@@ -38,12 +38,17 @@ const signinHandler = async (req, res) => {
         toAddress: userAvailable.email,
         mailSubject:
           "Account Activation Link-(required for creating shortUrls)",
-        mailContent: `Welcome ${createdUser.name}!, just click the following link to activate your Account and start creating ShortUrls  -   
+        mailContent: `Welcome ${userAvailable.name}!, just click the following link to activate your Account and start creating ShortUrls  -   
       ${process.env.CLIENT_URL_ACCOUNTACTIVATION}/${token}`,
       };
       await mailerFunc(mailDetails);
     }
-    res.send({ token, payLoad, type: "success" });
+    res.send({
+      token,
+      payLoad,
+      type: "success",
+      idActivated: userAvailable.idActivated,
+    });
   } catch (e) {
     console.log(e.message, " err -in signin");
     res.status(500).send({ msg: "server issue", type: "error" });
