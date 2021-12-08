@@ -8,7 +8,7 @@ const getAllUrlHandler = async (req, res) => {
         .status(401)
         .send({ msg: "Only authorized users allowed", type: "error" });
     }
-    const allUrls = await SuperUrlz.find({ id }).populate(
+    const allUrls = await SuperUrlz.find({ user: id }).populate(
       "user",
       "name email -_id"
     );

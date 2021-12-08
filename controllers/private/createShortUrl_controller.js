@@ -18,7 +18,7 @@ const createShortUrlHandler = async (req, res) => {
     if (!isUrlValid) {
       return res.status(400).send({ msg: "url not valid", type: "error" });
     }
-    const shortUrlLink = `${process.env.CLIENT_URL_SHORTURL_LINK}/${shortId}`;
+    const shortUrlLink = `${shortId}`;
     const urlCreated = await SuperUrlz.create({
       originalUrl: longUrl,
       shortUrlId: shortUrlLink,

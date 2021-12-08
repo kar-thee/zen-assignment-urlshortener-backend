@@ -9,7 +9,7 @@ const analysisUrlHandler = async (req, res) => {
         .status(401)
         .send({ msg: "Only authorized users allowed", type: "error" });
     }
-    const allUrls = await SuperUrlz.find({ id });
+    const allUrls = await SuperUrlz.find({ user: id });
     // const arr = await allUrls.map((d) => {
     //   return d.createdAt.toISOString();
     // });
